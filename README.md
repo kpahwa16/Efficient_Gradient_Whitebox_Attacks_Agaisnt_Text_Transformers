@@ -1,6 +1,8 @@
 # CS269_Final_Project
 Computationally Efficient Gradient Based Whitebox Attacks against Text Transformers
 
+Members: Khushbu Pahwa, Jakob Didio,  Hsin-Wei Yu 
+
 
 ## Abstract
 
