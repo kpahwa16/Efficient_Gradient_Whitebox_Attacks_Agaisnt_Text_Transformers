@@ -12,10 +12,10 @@ Deep learning models are now widely deployed in safety critical, medical, and ot
 Install conda and run the steps below:
 
 ```
-git clone https://github.com/kpahwa16/CS269_Final_Project.git
-cd CS269_Final_Project
-conda env create --file=env_attack.yml
-conda activate attack
+$ git clone https://github.com/kpahwa16/CS269_Final_Project.git
+$ cd CS269_Final_Project
+$ conda env create --file=env_attack.yml
+$ conda activate attack
 
 ```
 
@@ -23,28 +23,59 @@ conda activate attack
 The source code to fine-tune GPT-2 model from HuggingFace for a classification task is available at ./Finetuning folder. 
 
 ```
-python model_finetune.py --dataset {specify dataset_name, mandatory} --result_folder {specify result folder path to save the finetuned model file,'mandatory'} --checkpoint_folder {specify checkpoint folder path to save the various checkpoints, 'optional'} --batch_size {specify the batch size, 'optional'} --epochs {specify the epochs, 'optional'}  <br />
+$ python model_finetune.py --dataset {specify dataset_name, mandatory} --result_folder {specify result folder path to save the finetuned model file,'mandatory'} --checkpoint_folder {specify checkpoint folder path to save the various checkpoints, 'optional'} --batch_size {specify the batch size, 'optional'} --epochs {specify the epochs, 'optional'}  <br />
 
 For example, to fine-tune GPT-2 moel on AG News dataset for news categorization, run:
 
-python model_finetune.py --dataset ag_news
+$ python model_finetune.py --dataset ag_news
 
 
 ### Note: optional arguments would take the default values
 
 
 ```
-
-### Attacking the finetuned model (3 choices: gbda_attack, gradient_projection_attack, synonym_distribution_attack)
-
-```
-python model_finetune.py --dataset {specify dataset_name, mandatory} --result_folder {specify result folder path to save the finetuned model file,'mandatory'} --checkpoint_folder {specify checkpoint folder path to save the various checkpoints, 'optional'} --batch_size {specify the batch size, 'optional'} --epochs {specify the epochs, 'optional'}  <br />
-
-Eg. python model_finetune.py --dataset ag_news
+After training, the fine-tuned model gpt2_ag_news_finetune.pth will be saved in the result folder.
 
 
-### Note: optional arguments would take the default values
+## Attacking the finetuned model (3 choices: gbda_attack, gradient_projection_attack, synonym_distribution_attack)
 
+To attack a finetuned model trained in the previous step, run the following source code available at ./Attack:
 
 ```
+# for running the gbda attack, run:
+
+$ python gbda_attack.py  --start_index {specify start index}  --num_samples {specify num samples} --dataset {specify the dataset}
+
+For eg. to attack 100 samples of ag_news dataset starting from index 0, run:
+
+$ python gbda_attack.py  --start_index 0  --num_samples 100 --dataset ag_news
+
+# for running the gradient projection attack (L2L1 sparsity / Block Sparsity), run :
+
+$ python gradient_projection_attack.py  --start_index {specify start index}  --num_samples {specify num samples} --dataset {specify the dataset}
+
+# for running the synonym distribution attack, run:
+
+$ python synonym_distribution_attack.py  --start_index {specify start index}  --num_samples {specify num samples} --dataset {specify the dataset}
+
+```
+After running this code, a pickle file of the results are generated and saved in the results folder (specified in the previous step)
+
+### Evaluating the Attack 
+
+
+To evaluate the attack, run the following source code available at ./Attack:
+
+```
+# for evaluating the gbda attack, run:
+
+$ python evaluate_attack.py  --start_index {specify the start index} --num_samples {specify the num of samples to attack} --dataset {specify the dataset}
+
+# Note: Please ensure to provide the exact same --start_index and --num_samples used in the previous stage to attack the finetuned gpt2 model, this is because it would be used to load the pickle file having the format start_index_end_index_dataset.pkl . If this is not specified correctly, then the pickle file would not be loaded for evaluation.
+
+
+```
+
+
+
 
