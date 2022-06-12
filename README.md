@@ -71,8 +71,11 @@ To evaluate the attack, run the following source code available at ./Attack:
 
 $ python evaluate_attack.py  --start_index {specify the start index} --num_samples {specify the num of samples to attack} --dataset {specify the dataset}
 
-# Note: Please ensure to provide the exact same --start_index and --num_samples used in the previous stage to attack the finetuned gpt2 model, this is </br>
-because it would be used to load the pickle file having the format start_index_end_index_dataset.pkl . If this is not specified correctly, then the pickle file would not be loaded for evaluation.
+# Note: Please ensure to provide the exact same --start_index and --num_samples used in the previous stage to attack the finetuned gpt2 model, this is 
+
+because it would be used to load the pickle file having the format start_index_end_index_dataset.pkl . If this is not specified correctly,
+
+then the pickle file would not be loaded for evaluation.
 
 
 ```
