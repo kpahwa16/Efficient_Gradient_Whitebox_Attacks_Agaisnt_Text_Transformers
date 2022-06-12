@@ -8,3 +8,7 @@ Deep learning models are now widely deployed in safety critical, medical, and ot
 
 
 ## Installation Steps
+
+'''
+git clone https://github.com/kpahwa16/CS269_Final_Project.git
+'''
