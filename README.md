@@ -10,7 +10,6 @@ Deep learning models are now widely deployed in safety critical, medical, and ot
 ## Installation Steps
 
 ```
-function test() {
-  console.log("notice the blank line before this function?");
+git clone 
 }
 ```
