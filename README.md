@@ -82,6 +82,13 @@ then the pickle file would not be loaded for evaluation.
 
 ```
 
+This code evaluates the attack in terms of the average semantic similarity between the original sentences and the adversarial ones by using Universal Sentence Encoder (USE), the token error rate, and the success attack rate.
+
+## Acknowledgement:Codes from GBDA and Block Sparsity repos are adapated for this project. We thank the authors for their valuable efforts.
+
+
+
+
 
 
 
