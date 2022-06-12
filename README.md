@@ -9,6 +9,8 @@ Deep learning models are now widely deployed in safety critical, medical, and ot
 
 ## Installation Steps
 
+Install conda and run the steps below:
+
 ```
 git clone https://github.com/kpahwa16/CS269_Final_Project.git
 cd CS269_Final_Project
@@ -18,13 +20,31 @@ conda activate attack
 ```
 
 ## Finetuning the pre-trained transformer gpt2 model on a specific dataset ("ag_news, yelp, mnli")
+The source code to fine-tune GPT-2 model from HuggingFace for a classification task is available at ./Finetuning folder. 
+
+```
+python model_finetune.py --dataset {specify dataset_name, mandatory} --result_folder {specify result folder path to save the finetuned model file,'mandatory'} --checkpoint_folder {specify checkpoint folder path to save the various checkpoints, 'optional'} --batch_size {specify the batch size, 'optional'} --epochs {specify the epochs, 'optional'}  <br />
+
+For example, to fine-tune GPT-2 moel on AG News dataset for news categorization, run:
+
+python model_finetune.py --dataset ag_news
+
+
+### Note: optional arguments would take the default values
+
+
+```
+
+### Attacking the finetuned model (3 choices: gbda_attack, gradient_projection_attack, synonym_distribution_attack)
 
 ```
 python model_finetune.py --dataset {specify dataset_name, mandatory} --result_folder {specify result folder path to save the finetuned model file,'mandatory'} --checkpoint_folder {specify checkpoint folder path to save the various checkpoints, 'optional'} --batch_size {specify the batch size, 'optional'} --epochs {specify the epochs, 'optional'}  <br />
 
 Eg. python model_finetune.py --dataset ag_news
 
+
 ### Note: optional arguments would take the default values
 
 
 ```
+
