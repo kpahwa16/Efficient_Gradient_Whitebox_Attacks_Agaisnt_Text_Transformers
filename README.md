@@ -20,7 +20,9 @@ conda activate attack
 ## Finetuning the pre-trained transformer gpt2 model on a specific dataset ("ag_news, yelp, mnli")
 
 ```
-python model_finetune.py --dataset {specify dataset_name, mandatory} --result_folder {specify result folder path to save the finetuned model <br />  file,'mandatory'} --checkpoint_folder {specify checkpoint folder path to save the various checkpoints, 'optional'} --batch_size {specify the batch size, <br /> 'optional'} --epochs {specify the epochs, 'optional'}  <br />
+python model_finetune.py --dataset {specify dataset_name, mandatory} --result_folder {specify result folder path to save the finetuned model file,'mandatory'} --checkpoint_folder {specify checkpoint folder path to save the various checkpoints, 'optional'} --batch_size {specify the batch size, 'optional'} --epochs {specify the epochs, 'optional'}  <br />
+
+Eg. python model_finetune.py --dataset ag_news
 
 ### Note: optional arguments would take the default values
 
